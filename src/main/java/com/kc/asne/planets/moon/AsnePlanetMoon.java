@@ -28,7 +28,6 @@ public class AsnePlanetMoon {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public AsnePlanetMoon() {
-        registerPlanets();
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -37,6 +36,7 @@ public class AsnePlanetMoon {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        registerPlanets();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -65,9 +65,9 @@ public class AsnePlanetMoon {
     }
 
     private void registerPlanets(){
-        ModPlanetsRegister register = PlanetsAPI.createRegister(MOD_ID);
-        register.registerBiome("moon_planet_biome", MoonPlanetBiome::new);
+        ModPlanetsRegister register = PlanetsAPI.createRegister("asne");
         register.registerPlanet("moon_planet", MoonPlanetModDimension::new);
+        register.registerBiome("moon_planet_biome", MoonPlanetBiome::new);
 
     }
 
