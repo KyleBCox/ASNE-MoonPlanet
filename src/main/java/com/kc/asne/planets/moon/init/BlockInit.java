@@ -12,6 +12,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, AsnePlanetMoon.MOD_ID);
 
-    public static final RegistryObject<Block> MOON_STONE = BLOCKS.register("moon_stone", () -> new Block(Block.Properties.create(Material.ROCK).harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).harvestLevel(2)));
+    public static final RegistryObject<Block> MOON_STONE = BLOCKS.register("moon_stone", () -> new Block(Block.Properties.create(Material.ROCK).harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).harvestLevel(2).hardnessAndResistance(1.3f, 6f)));
 
 }
