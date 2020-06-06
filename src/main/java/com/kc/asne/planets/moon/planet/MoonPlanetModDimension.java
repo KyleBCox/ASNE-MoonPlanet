@@ -12,4 +12,9 @@ public class MoonPlanetModDimension extends AsnePlanetModDimension {
     public BiFunction<World, DimensionType, ? extends Dimension> getFactory() {
         return MoonPlanetDimension::new;
     }
+
+    @Override
+    public boolean hasSkyLight() {
+        return true;
+    }
 }

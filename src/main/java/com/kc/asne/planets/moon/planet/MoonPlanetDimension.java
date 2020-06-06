@@ -11,7 +11,6 @@ public class MoonPlanetDimension extends AsnePlanetDimension {
         super(world, type, () -> new MoonChunkGenerator(world));
     }
 
-
     @Override
     public IAtmosphereSettings getAtmosphereSettings() {
         return new MoonAtmosphereSettings();

@@ -1,14 +1,22 @@
 package com.kc.asne.planets.moon;
 
+import com.kc.asne.planets.moon.init.BlockInit;
+import com.kc.asne.planets.moon.init.ItemInit;
 import com.kc.asne.planets.moon.planet.MoonPlanetBiome;
 import com.kc.asne.planets.moon.planet.MoonPlanetDimension;
 import com.kc.asne.planets.moon.planet.MoonPlanetModDimension;
+import com.kc.asne.planets.moon.planet.surfacebulders.MoonSurfaceBuilder;
 import com.kc.asne.planetsapi.PlanetsAPI;
 import com.kc.asne.planetsapi.register.ModPlanetsRegister;
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -36,6 +44,8 @@ public class AsnePlanetMoon {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        BlockInit.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ItemInit.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         registerPlanets();
 
         // Register ourselves for server and other game events we are interested in
@@ -68,6 +78,7 @@ public class AsnePlanetMoon {
         ModPlanetsRegister register = PlanetsAPI.createRegister("asne");
         register.registerPlanet("moon_planet", MoonPlanetModDimension::new);
         register.registerBiome("moon_planet_biome", MoonPlanetBiome::new);
+        register.registerSurfaceBuilder("moon_planet", () -> new MoonSurfaceBuilder(SurfaceBuilderConfig::deserialize));
 
     }
 
@@ -81,5 +92,12 @@ public class AsnePlanetMoon {
             LOGGER.info("HELLO from Register Block");
         }
     }
+
+    public static final ItemGroup MOON_ITEM_GROUP = new ItemGroup("asne_moon") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(ItemInit.MOON_STONE.get());
+        }
+    };
 
 }

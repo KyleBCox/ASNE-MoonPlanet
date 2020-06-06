@@ -1,5 +1,7 @@
 package com.kc.asne.planets.moon.planet;
 
+import com.kc.asne.planets.moon.AsnePlanetMoon;
+import com.kc.asne.planets.moon.planet.surfacebulders.MoonSurfaceBuilder;
 import com.kc.asne.planetsapi.base.AsnePlanetBiome;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -16,20 +18,15 @@ public class MoonPlanetBiome extends AsnePlanetBiome {
 
     public MoonPlanetBiome() {
         this(new Biome.Builder()
-                .surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.STONE_STONE_GRAVEL_CONFIG)
+                .surfaceBuilder(new MoonSurfaceBuilder(SurfaceBuilderConfig::deserialize), MoonSurfaceBuilder.MOON_CONFIG)
                 .precipitation(RainType.NONE)
                 .category(Category.NONE)
                 .temperature(-0.1f)
                 .downfall(0)
                 .depth(1)
-                .scale(1f)
+                .scale(0.01f)
                 .waterColor(0xFFFFFF)
                 .waterFogColor(0xFFFFFF));
-    }
-
-    @Override
-    public int getSkyColor() {
-        return 0x000000;
     }
 
     @Override

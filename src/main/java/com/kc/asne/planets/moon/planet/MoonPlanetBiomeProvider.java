@@ -8,9 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MoonPlanetBiomeProvider extends AsnePlanetBiomeProvider {
-    private static final ImmutableSet<Biome> BIOMES = ImmutableSet.of(new MoonPlanetBiome());
     protected MoonPlanetBiomeProvider() {
-        super(BIOMES);
+        super(ImmutableSet.of(new MoonPlanetBiome()));
     }
 
     @Override
