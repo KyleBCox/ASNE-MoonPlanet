@@ -1,6 +1,26 @@
 {
   "biome.asnemoon.moon": "Moon",
+
   "itemGroup.asne_moon": "ASNE Moon",
+
+  "block.asnemoon.moon_stone": "Moon Stone",
+  "block.asnemoon.hackmanite_moon_ore": "Hackmanite Moon Ore",
+  "block.asnemoon.iolite_moon_ore": "Iolite Moon Ore",
+
   "item.asnemoon.moon_stone": "Moon Stone",
-  "block.asnemoon.moon_stone": "Moon Stone"
+  "item.asnemoon.hackmanite_moon_ore": "Hackmanite Moon Ore",
+  "item.asnemoon.iolite_moon_ore": "Iolite Moon Ore",
+  "item.asnemoon.iolite_gem": "Iolite Gemstone",
+
+  "item.asnemoon.hackmanite_axe": "Hackmanite Axe",
+  "item.asnemoon.hackmanite_pickaxe": "Hackmanite Pickaxe",
+  "item.asnemoon.hackmanite_sword": "Hackmanite Sword",
+  "item.asnemoon.hackmanite_shovel": "Hackmanite Shovel",
+  "item.asnemoon.hackmanite_hoe": "Hackmanite Hoe",
+
+  "item.asnemoon.iolite_axe": "Iolite Axe",
+  "item.asnemoon.iolite_pickaxe": "Iolite Pickaxe",
+  "item.asnemoon.iolite_sword": "Iolite Sword",
+  "item.asnemoon.iolite_shovel": "Iolite Shovel",
+  "item.asnemoon.iolite_hoe": "Iolite Hoe"
 }

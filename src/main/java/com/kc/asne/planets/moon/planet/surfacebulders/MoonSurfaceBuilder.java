@@ -23,10 +23,21 @@ public class MoonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
     @Override
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
         for (int i = startHeight; i >= 0; --i) {
+            BlockPos pos = new BlockPos(x, i, z);
+
             if (i <= 1) {
-                chunkIn.setBlockState(new BlockPos(x, i, z), Blocks.BEDROCK.getDefaultState(), false);
+                chunkIn.setBlockState(pos, Blocks.BEDROCK.getDefaultState(), false);
+            } else if (i <= 65) {
+                int randInt = random.nextInt(200);
+                if (randInt == 1) {
+                    chunkIn.setBlockState(pos, BlockInit.HACKMANITE_MOON_ORE.get().getDefaultState(), false);
+                } else if (randInt == 2) {
+                    chunkIn.setBlockState(pos, BlockInit.IOLITE_MOON_ORE.get().getDefaultState(), false);
+                } else {
+                    chunkIn.setBlockState(pos, BlockInit.MOON_STONE.get().getDefaultState(), false);
+                }
             } else {
-                chunkIn.setBlockState(new BlockPos(x, i, z), BlockInit.MOON_STONE.get().getDefaultState(), false);
+                chunkIn.setBlockState(pos, BlockInit.MOON_STONE.get().getDefaultState(), false);
             }
         }
     }
